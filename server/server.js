@@ -2,10 +2,20 @@
 
 const express = require('express');
 const mysql = require('mysql');
+const cors = require('cors');
 
 const app = express();
 const port = 3001;
 
+
+app.use(cors())
+app.get('/',(re, res) =>{
+  return res.json("From Backend side");
+})
+
+app.listen (3001, () => {
+  console.log("listening");
+})
 // Create a MySQL connection
 const db = mysql.createConnection({
   host: 'localhost',
